@@ -70,11 +70,11 @@ public class OffersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_offers, container, false);
+        view = inflater.inflate(R.layout.fragment_offers, container, false);
 
         bar = view.findViewById(R.id.offerProgressBar);
-        OffersRecycler= (RecyclerView)view.findViewById(R.id.OffersRecycler);
-        OffersFloatingActionButton= (FloatingActionButton)view.findViewById(R.id.OffersFloatingBtnId);
+        OffersRecycler= view.findViewById(R.id.OffersRecycler);
+        OffersFloatingActionButton= view.findViewById(R.id.OffersFloatingBtnId);
 
         mDataBaseRef = FirebaseDatabase.getInstance().getReference("offers");
         OfferList = new ArrayList<>();
@@ -89,7 +89,7 @@ public class OffersFragment extends Fragment {
                 for(DataSnapshot snapshot1 : snapshot.getChildren())
                 {
                     OfferList.add(new AdminOffer(snapshot1.getKey() ,
-                            snapshot1.child("describtion").getValue(String.class) ,
+                            snapshot1.child("description").getValue(String.class) ,
                             snapshot1.child("img").getValue(String.class)));
                 }
                 adapter.notifyDataSetChanged();
@@ -111,7 +111,7 @@ public class OffersFragment extends Fragment {
                 Bundle b = new Bundle();
                 b.putString("img" , OfferList.get(pos).getOfferImg());
                 b.putString("name" , OfferList.get(pos).getOfferName());
-                b.putString("describtion" , OfferList.get(pos).getOfferDescription());
+                b.putString("description" , OfferList.get(pos).getOfferDescription());
                 i.putExtras(b);
                 startActivity(i);
             }

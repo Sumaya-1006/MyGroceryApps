@@ -54,7 +54,7 @@ public class OrderActivity extends AppCompatActivity implements NavigationView.O
         CurrentUser = mAuth.getCurrentUser();
         UserId = CurrentUser.getUid();
 
-        mToolbar = (Toolbar)findViewById(R.id.OrderToolbar);
+        mToolbar = findViewById(R.id.OrderToolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -63,8 +63,8 @@ public class OrderActivity extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onStart() {
         super.onStart();
-        drawerLayout = (DrawerLayout) findViewById(R.id.OrderDrawer);
-        navigationView = (NavigationView) findViewById(R.id.OrderNavigationViewer);
+        drawerLayout =  findViewById(R.id.OrderDrawer);
+        navigationView =  findViewById(R.id.OrderNavigationViewer);
 
         //navigation header
         navigationView.setNavigationItemSelectedListener(this);
@@ -197,9 +197,9 @@ public class OrderActivity extends AppCompatActivity implements NavigationView.O
         actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
-        PageTitle =(TextView)findViewById(R.id.PageTitle);
-        CustomCartNumber = (TextView)findViewById(R.id.CustomCartNumber);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
+        PageTitle = findViewById(R.id.PageTitle);
+        CustomCartNumber = findViewById(R.id.CustomCartNumber);
 
         PageTitle.setText("My Orders");
         setNumberOfItemsInCartIcon();

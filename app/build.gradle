@@ -1,15 +1,15 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
+   id 'com.google.gms.google-services'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.mygroceryapps"
-        minSdk 19
-        targetSdk 30
+        minSdk 21
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
@@ -26,12 +26,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-
+    buildToolsVersion '33.0.1'
 }
 
-dependencies {
 
+dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -50,10 +49,11 @@ dependencies {
 
     implementation 'com.budiyev.android:code-scanner:2.1.0'
     implementation 'com.karumi:dexter:6.0.0'
-
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     //image cropper
+    //noinspection GradleDynamicVersion
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 
     //(Picasso Library)download image from storage database
@@ -66,4 +66,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
 }

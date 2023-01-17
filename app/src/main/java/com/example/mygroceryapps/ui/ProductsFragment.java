@@ -70,8 +70,8 @@ public class ProductsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_products, container, false);
 
-        ProductsRecycler= (RecyclerView)view.findViewById(R.id.ProductsRecycler);
-        ProductsFloatingActionButton= (FloatingActionButton)view.findViewById(R.id.ProductsFloatingBtnId);
+        ProductsRecycler= view.findViewById(R.id.ProductsRecycler);
+        ProductsFloatingActionButton= view.findViewById(R.id.ProductsFloatingBtnId);
 
         bar = view.findViewById(R.id.productProgressBar);
 

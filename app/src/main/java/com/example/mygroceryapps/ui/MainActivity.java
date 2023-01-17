@@ -12,7 +12,6 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -23,7 +22,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
 import com.example.mygroceryapps.Model.HorizontalProductModel;
 import com.example.mygroceryapps.Model.Offers;
 import com.example.mygroceryapps.Model.favouritesClass;
@@ -41,10 +39,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -67,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RelativeLayout CustomCartContainer;
     private TextView PageTitle;
     private TextView CustomCartNumber;
-    private Object model;
 
 
     @Override
@@ -75,11 +70,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mAuth = FirebaseAuth.getInstance();
         CurrentUser = mAuth.getCurrentUser();
         Uid = CurrentUser.getUid();
 
-        navigationView = findViewById(R.id.navegation_view);
+        navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
         mnavigationview = navigationView.getHeaderView(0);
         mperson_name = mnavigationview.findViewById(R.id.persname);
@@ -128,17 +124,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void Retrieve_Electroncis() {
-        LinearLayout mylayout = (LinearLayout) findViewById(R.id.my_cardView);
+        LinearLayout mylayout =  findViewById(R.id.my_cardView);
         LayoutInflater inflater = getLayoutInflater();
         inflater.inflate(R.layout.grid_product_layout, mylayout, false);
+
         TextView gridlayouttitle = mylayout.findViewById(R.id.grid_product_layout_textview);
         gridlayouttitle.setText("Electronics");
+
         Button GridLayoutViewBtn = mylayout.findViewById(R.id.grid_button_layout_viewall_button);
         final GridView gv = mylayout.findViewById(R.id.product_layout_gridview);
         final List<HorizontalProductModel> lastmodels = new ArrayList<>();
         final GridproductAdapter my_adapter;
+
         my_adapter = new GridproductAdapter(lastmodels, favourites,MainActivity.this);
         m = FirebaseDatabase.getInstance().getReference().child("product").child("Electronics");
+
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         GridLayoutViewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                Intent intent = new Intent(MainActivity.this,CategoryActivity.class);
                 intent.putExtra("Category Name","Electronics");
                 startActivity(intent);
             }
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void Retrieve_Fruits() {
-        LinearLayout mylayout =  findViewById(R.id.my_cardView2);
+        LinearLayout mylayout = (LinearLayout) findViewById(R.id.my_cardView2);
         LayoutInflater inflater = getLayoutInflater();
         inflater.inflate(R.layout.grid_product_layout, mylayout, false);
         TextView gridlayouttitle = mylayout.findViewById(R.id.grid_product_layout_textview);
@@ -201,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final GridproductAdapter my_adapter;
         my_adapter = new GridproductAdapter(lastmodels, favourites,MainActivity.this);
         m = FirebaseDatabase.getInstance().getReference().child("product").child("Fruits");
+        m.keepSynced(true);
         ValueEventListener eventListener = new ValueEventListener() {
 
             @Override
@@ -231,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void Retrieve_Meats() {
-        LinearLayout mylayout =  findViewById(R.id.my_cardView3);
+        LinearLayout mylayout = (LinearLayout) findViewById(R.id.my_cardView3);
         LayoutInflater inflater = getLayoutInflater();
         inflater.inflate(R.layout.grid_product_layout, mylayout, false);
         TextView gridlayouttitle = mylayout.findViewById(R.id.grid_product_layout_textview);
@@ -323,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     offer = ds.getValue(Offers.class);
                     offer.setTitle(ds.getKey().toString());
                     models.add(new model(offer.getImg(), offer.getTitle(), offer.getDescribtion()));
-                    adapter = new My_Adapter((List<com.example.mygroceryapps.Model.model>) model, MainActivity.this);
+                    adapter = new My_Adapter(models, MainActivity.this);
                     pager = findViewById(R.id.cardview);
                     pager.setAdapter((PagerAdapter) adapter);
                     pager.setPadding(130, 0, 130, 0);
@@ -396,7 +397,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseAuth.getInstance().signOut();
-                        Intent intent=new Intent(MainActivity.this, loginActivity.class);
+                        Intent intent=new Intent(MainActivity.this,loginActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -459,7 +460,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         PageTitle = findViewById(R.id.PageTitle);
         CustomCartNumber = findViewById(R.id.CustomCartNumber);
 
-        PageTitle.setText("Grocery");
+        PageTitle.setText("Grocery Apps");
         setNumberOfItemsInCartIcon();
 
         CustomCartContainer.setOnClickListener(new View.OnClickListener() {
@@ -511,7 +512,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {}
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
         };
         m.addListenerForSingleValueEvent(eventListener);
 

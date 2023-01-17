@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    tools:context=".UI.UserProfileActivity">
+    tools:context=".ui.UserProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,9 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/ProfileCover"
-            android:layout_marginTop="-5dp"
             android:layout_marginLeft="20dp"
-            app:srcCompat="@drawable/new_camera"/>
+            android:layout_marginTop="-5dp"
+            app:srcCompat="@drawable/new_camera" />
 
 
         <include layout="@layout/main2_toolbar"
@@ -183,45 +183,45 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@drawable/circular"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="-50dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="-65dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="-65dp"
+                android:layout_marginBottom="-50dp"
+                android:background="@drawable/circular" />
 
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:background="@drawable/circular"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="-80dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginLeft="15dp"
-                android:layout_marginRight="40dp"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="-80dp"
+                android:background="@drawable/circular" />
 
 
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:background="@drawable/circular"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="-65dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="-50dp"
-                android:layout_marginLeft="-65dp"/>
+                android:background="@drawable/circular" />
 
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:background="@drawable/circular"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="-80dp"
-                android:layout_marginLeft="40dp"/>
+                android:background="@drawable/circular" />
 
 
         </RelativeLayout>

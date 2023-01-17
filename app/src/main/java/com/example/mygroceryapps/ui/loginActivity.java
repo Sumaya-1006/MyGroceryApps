@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -43,12 +44,12 @@ public class loginActivity extends AppCompatActivity {
         fauth = FirebaseAuth.getInstance();
         tvLogin = findViewById(R.id.tvLogin);
         mlogin =  findViewById(R.id.Login);
-        mCreateBtn =  findViewById(R.id.SignUPtext);
+        mCreateBtn = findViewById(R.id.SignUPtext);
         mprogresspar =  findViewById(R.id.progressBar1);
         mforgerpassword =  findViewById(R.id.ForgetPassword);
         // Checking if the user is logging in or log out ! ;
         if (fauth.getCurrentUser() != null) {
-            if (fauth.getCurrentUser().getEmail().equals("")) {
+            if (fauth.getCurrentUser().getEmail().equals("admin@gmail.com")) {
                 startActivity(new Intent(loginActivity.this, AdminActivity.class));
                 finish();
             } else {
@@ -83,7 +84,7 @@ public class loginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            if (Email.equals("") && Password.equals("")) {
+                            if (Email.equals("admin@gmail.com") && Password.equals("password")) {
                                 Toast.makeText(loginActivity.this, "Welcome My Creator", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(loginActivity.this, AdminActivity.class));
                                 finish();

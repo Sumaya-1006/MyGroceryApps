@@ -9,9 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import com.example.mygroceryapps.R;
+
 import com.example.mygroceryapps.Model.HorizontalProductModel;
 import com.example.mygroceryapps.Model.favouritesClass;
+import com.example.mygroceryapps.R;
 import com.example.mygroceryapps.ui.ProductInfoActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -36,7 +37,7 @@ public class GridproductAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return horizontalProductModelList.size();
     }
 
     @Override
@@ -50,7 +51,7 @@ public class GridproductAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView( int position, View convertView, ViewGroup parent) {
 
         View view;
         if (convertView == null) {
@@ -60,10 +61,13 @@ public class GridproductAdapter extends BaseAdapter {
             producttitle = view.findViewById(R.id.item_title);
             productprice = view.findViewById(R.id.item_Price);
             checkBox = view.findViewById(R.id.check_box);
+
             Picasso.get().load(horizontalProductModelList.get(position).getProductimage()).into(productImage);
             producttitle.setText(horizontalProductModelList.get(position).getProducttitle());
-            productprice.setText("EGP "+horizontalProductModelList.get(position).getProductprice());
+            productprice.setText("TK "+horizontalProductModelList.get(position).getProductprice());
+
             boolean isfavourite = false;
+
             for (int i = 0; i < favourites.size(); i++) {
                 if (horizontalProductModelList.get(position).getProducttitle().equals(favourites.get(i).getProducttitle())) {
                     isfavourite = true;
@@ -84,12 +88,15 @@ public class GridproductAdapter extends BaseAdapter {
             public void onClick(View v) {
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("favourites")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
                 HorizontalProductModel hz = horizontalProductModelList.get(position);
+
                 if (!(horizontalProductModelList.get(position).isChecked())) {
                     horizontalProductModelList.get(position).setChecked(true);
                     checkBox = v.findViewById(R.id.check_box);
                     checkBox.setImageResource(R.drawable.ic_baseline_favorite_24);
                     ref.child(horizontalProductModelList.get(position).getProducttitle()).setValue(hz);
+
                 } else {
                     horizontalProductModelList.get(position).setChecked(false);
                     checkBox = v.findViewById(R.id.check_box);

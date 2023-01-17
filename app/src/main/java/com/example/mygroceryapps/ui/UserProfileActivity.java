@@ -76,13 +76,13 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //define xml data
-        UserImage =(CircleImageView)findViewById(R.id.UserImage);
-        UserName = (TextView)findViewById(R.id.UserName);
-        UserEmail =(TextView)findViewById(R.id.UserEmail);
-        UserPhone =(TextView)findViewById(R.id.UserPhone);
-        UserFavorites= (TextView)findViewById(R.id.UserFavorite);
-        UserOrders= (TextView)findViewById(R.id.UserOrders);
-        progressBar =(ProgressBar)findViewById(R.id.ProfileprogressBar);
+        UserImage = findViewById(R.id.UserImage);
+        UserName = findViewById(R.id.UserName);
+        UserEmail = findViewById(R.id.UserEmail);
+        UserPhone = findViewById(R.id.UserPhone);
+        UserFavorites= findViewById(R.id.UserFavorite);
+        UserOrders= findViewById(R.id.UserOrders);
+        progressBar = findViewById(R.id.ProfileprogressBar);
 
         //get User Profile Data
         getUserProfileData();
@@ -334,9 +334,9 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
         actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
-        PageTitle =(TextView)findViewById(R.id.PageTitle);
-        CustomCartNumber = (TextView)findViewById(R.id.CustomCartNumber);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
+        PageTitle = findViewById(R.id.PageTitle);
+        CustomCartNumber = findViewById(R.id.CustomCartNumber);
 
         PageTitle.setText("My Profile");
         setNumberOfItemsInCartIcon();

@@ -65,19 +65,19 @@ public class AddProduct extends AppCompatActivity {
         getSupportActionBar().setTitle("Add Product");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        name = (TextInputEditText) findViewById(R.id.editTextProductName);
-        quantity =(TextInputEditText) findViewById(R.id.editTextProductNumber);
-        add = (Button) findViewById(R.id.btnAdd);
-        choose = (Button)findViewById(R.id.btnChooseImg);
-        img = (ImageView) findViewById(R.id.imgProduct);
-        price =(TextInputEditText) findViewById(R.id.editTextProductPrice);
-        expDate =(TextInputEditText) findViewById(R.id.editTextProductExpire);
-        spinner = (Spinner)findViewById(R.id.spinner);
+        name =  findViewById(R.id.editTextProductName);
+        quantity = findViewById(R.id.editTextProductNumber);
+        add =  findViewById(R.id.btnAdd);
+        choose = findViewById(R.id.btnChooseImg);
+        img =  findViewById(R.id.imgProduct);
+        price = findViewById(R.id.editTextProductPrice);
+        expDate = findViewById(R.id.editTextProductExpire);
+        spinner = findViewById(R.id.spinner);
 
-        nameLayout = (TextInputLayout) findViewById(R.id.editTextProductNameLayout);
-        quantityLayout = (TextInputLayout) findViewById(R.id.editTextProductNumberLayout);
-        priceLayout = (TextInputLayout) findViewById(R.id.editTextProductPriceLayout);
-        expDateLayout = (TextInputLayout) findViewById(R.id.editTextProductExpireLayout);
+        nameLayout =  findViewById(R.id.editTextProductNameLayout);
+        quantityLayout =  findViewById(R.id.editTextProductNumberLayout);
+        priceLayout = findViewById(R.id.editTextProductPriceLayout);
+        expDateLayout =  findViewById(R.id.editTextProductExpireLayout);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.productstypes, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);

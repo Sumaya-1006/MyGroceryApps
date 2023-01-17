@@ -68,10 +68,10 @@ public class SalesMenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_sales_men, container, false);
+        view = inflater.inflate(R.layout.fragment_sales_men, container, false);
 
-        SalesMenRecycler= (RecyclerView)view.findViewById(R.id.SalesMenRecycler);
-        SalesFloatingActionButton= (FloatingActionButton)view.findViewById(R.id.SalesFloatingBtnId);
+        SalesMenRecycler = view.findViewById(R.id.SalesMenRecycler);
+        SalesFloatingActionButton = view.findViewById(R.id.SalesFloatingBtnId);
 
         mDataBaseRef = FirebaseDatabase.getInstance().getReference("salesman");
         bar = view.findViewById(R.id.salesManProgressBar);

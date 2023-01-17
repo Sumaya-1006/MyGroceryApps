@@ -138,7 +138,8 @@ public class CartCheckActivity extends AppCompatActivity implements NavigationVi
                 root.child("order").child(CurrentUser).child(key).child("orderproducts").child("totalPrice").removeValue();
                 root.child("order").child(CurrentUser).child(key).child("Date").setValue(String.valueOf(new SimpleDateFormat("dd MMM yyyy hh:mm a").format(Calendar.getInstance().getTime())));
                 root.child("order").child(CurrentUser).child(key).child("IsChecked").setValue("false");
-                Toast.makeText( getApplicationContext() ,"Confermed Completed" , Toast.LENGTH_LONG).show();
+                Toast.makeText( getApplicationContext() ,"Confirmed Completed" , Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), OrderActivity.class));
                 root.child("cart").child(CurrentUser).removeValue();
             }
 
@@ -339,7 +340,7 @@ public class CartCheckActivity extends AppCompatActivity implements NavigationVi
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.exists()) {
-                    FirebaseDatabase.getInstance().getReference().child("cart").child(UserId).child("totalPrice").setValue("0");
+                    FirebaseDatabase.getInstance().getReference().child("cart").child(UserId).child("totalPrice").setValue("");
                 }
             }
 

@@ -194,7 +194,6 @@
                 android:textSize="14sp" />
 
 
-
             <ProgressBar
                 android:id="@+id/progressBar1"
                 style="?android:attr/progressBarStyle"

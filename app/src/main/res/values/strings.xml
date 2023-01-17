@@ -8,7 +8,7 @@
     <string name="favorites">Favorites</string>
     <string name="cart">Cart</string>
     <string name="my_orders">My Orders</string>
-   <string name="Gmail_web_client_id">AIzaSyCVP76jrKQURdUvfVF9WWc1TLDF2Go5VhY</string>
+   <string name="Gmail_web_client_id">AIzaSyC9G0gmVQu0FYkBv0Gh1dPiL8-TL96vuBk</string>
 
     <string-array name="productstypes">
         <item>Fruits</item>

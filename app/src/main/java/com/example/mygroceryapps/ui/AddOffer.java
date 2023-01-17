@@ -56,7 +56,7 @@ public class AddOffer extends AppCompatActivity {
         setContentView(R.layout.activity_add_offer);
 
         //tool bar
-        mToolBar = (Toolbar)findViewById(R.id.AddOffer_ToolBar);
+        mToolBar = findViewById(R.id.AddOffer_ToolBar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("Add Offer");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -268,12 +268,12 @@ public class AddOffer extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true);
 
         LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view= inflater.inflate(R.layout.main2_toolbar,null);
+        View view = inflater.inflate(R.layout.main2_toolbar,null);
         //actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
-        PageTitle =(TextView)findViewById(R.id.PageTitle);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
+        PageTitle = findViewById(R.id.PageTitle);
         PageTitle.setVisibility(View.GONE);
         CustomCartContainer.setVisibility(View.GONE);
 

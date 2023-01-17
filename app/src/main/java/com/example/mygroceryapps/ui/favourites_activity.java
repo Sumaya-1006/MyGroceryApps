@@ -159,7 +159,7 @@ public class favourites_activity extends AppCompatActivity implements Navigation
 
     private void DefineNavigation() {
         View mnavigationview;
-        navigationView = findViewById(R.id.navegation_view2);
+        navigationView = findViewById(R.id.navigation_view2);
         drawerLayout = findViewById(R.id.drawer2);
 
         navigationView.setNavigationItemSelectedListener(this);
@@ -244,9 +244,9 @@ public class favourites_activity extends AppCompatActivity implements Navigation
         actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
-        PageTitle =(TextView)findViewById(R.id.PageTitle);
-        CustomCartNumber = (TextView)findViewById(R.id.CustomCartNumber);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
+        PageTitle = findViewById(R.id.PageTitle);
+        CustomCartNumber = findViewById(R.id.CustomCartNumber);
 
         PageTitle.setText("Favourites");
         setNumberOfItemsInCartIcon();

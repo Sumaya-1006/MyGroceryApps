@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/QRScanner_TooBar"
-        layout="@layout/main2_toolbar"/>
+        layout="@layout/main2_toolbar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -25,14 +25,13 @@
             android:id="@+id/ScannerView"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
             app:frameAspectRatioHeight="1"
             app:frameAspectRatioWidth="1"
-            app:frameThickness="2dp"
-            app:frameSize="0.95"
+            app:frameCornersRadius="0dp"
             app:frameCornersSize="50dp"
-            app:frameCornersRadius="0dp"/>
+            app:frameSize="0.95"
+            app:frameThickness="2dp" />
 
         <TextView
             android:id="@+id/text"

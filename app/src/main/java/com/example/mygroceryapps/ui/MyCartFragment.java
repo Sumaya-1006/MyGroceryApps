@@ -100,7 +100,7 @@ public class MyCartFragment extends Fragment {
                     for (DataSnapshot dataSnapshot : snapshot.child(CurrentUser).getChildren()) {
 
                         if (!dataSnapshot.getKey().equals("totalPrice")) {
-                            Log.d("kk", dataSnapshot.getKey());
+                            Log.d("key", dataSnapshot.getKey());
                             String cartItemTitle = dataSnapshot.getKey();
                             String cartItemImage = dataSnapshot.child("productImage").getValue(String.class).toString();
                             String cartItemPrice = dataSnapshot.child("productPrice").getValue(String.class).toString();
@@ -203,7 +203,7 @@ public class MyCartFragment extends Fragment {
 
                     }
                     root.child("cart").child(CurrentUser).child("totalPrice").setValue(String.valueOf(totalpriceVal));
-                    totalprice.setText(String.valueOf(totalpriceVal)+" EGP");
+                    totalprice.setText(String.valueOf(totalpriceVal)+" TK");
                     cartAdapter.notifyDataSetChanged();
                 }
             }

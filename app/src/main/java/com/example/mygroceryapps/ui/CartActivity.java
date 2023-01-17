@@ -47,7 +47,7 @@ public class CartActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_cart);
         fa=this;
 
-        mToolbar = (Toolbar)findViewById(R.id.cartToolbar);
+        mToolbar = findViewById(R.id.cartToolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("My Cart");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -61,8 +61,8 @@ public class CartActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
-        drawerLayout = (DrawerLayout) findViewById(R.id.cartDrawer);
-        navigationView = (NavigationView) findViewById(R.id.cartNavigationViewer);
+        drawerLayout =  findViewById(R.id.cartDrawer);
+        navigationView =  findViewById(R.id.cartNavigationViewer);
 
         //navigation header
         navigationView.setNavigationItemSelectedListener(this);
@@ -86,7 +86,7 @@ public class CartActivity extends AppCompatActivity implements NavigationView.On
         String CurrentUser = mAuth.getCurrentUser().getUid();
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         DatabaseReference m = root.child("users").child(CurrentUser);
-        ValueEventListener valueEventListener=new ValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -191,8 +191,8 @@ public class CartActivity extends AppCompatActivity implements NavigationView.On
         //actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
-        PageTitle =(TextView)findViewById(R.id.PageTitle);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
+        PageTitle = findViewById(R.id.PageTitle);
         PageTitle.setVisibility(View.GONE);
         CustomCartContainer.setVisibility(View.GONE);
 

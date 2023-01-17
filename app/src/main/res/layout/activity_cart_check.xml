@@ -6,7 +6,7 @@
     android:id="@+id/cartCheckDrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.CartCheckActivity">
+    tools:context=".ui.CartCheckActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -32,7 +32,8 @@
                 android:textColorHighlight="#FFFFFF"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cartCheckToolbar" />
+                app:layout_constraintTop_toBottomOf="@+id/cartCheckToolbar"
+                tools:ignore="NotSibling" />
 
             <View
                 android:id="@+id/divider"
@@ -143,7 +144,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
-                android:text="You Saved 1000 EG"
+                android:text="You Saved 1000 TK"
                 android:textColor="#3CCF17"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"

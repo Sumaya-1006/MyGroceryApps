@@ -36,12 +36,12 @@ public class AdminActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
 
         //tool bar
-        mToolBar = (Toolbar)findViewById(R.id.Admin_ToolBar);
+        mToolBar = findViewById(R.id.Admin_ToolBar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("Admin Control");
 
-        FragmentTitle =(TextView)findViewById(R.id.FragmentTitle);
-        bottomNavigationView= (BottomNavigationView)findViewById(R.id.Bottom_view);
+        FragmentTitle = findViewById(R.id.FragmentTitle);
+        bottomNavigationView= findViewById(R.id.Bottom_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(naveListener);
 
         //default fragment is product (awl ma y sign in go to products fragment)
@@ -134,11 +134,11 @@ public class AdminActivity extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true);
 
         LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view= inflater.inflate(R.layout.main2_toolbar,null);
+        View view = inflater.inflate(R.layout.main2_toolbar,null);
         //actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
         PageTitle =(TextView)findViewById(R.id.PageTitle);
         PageTitle.setVisibility(View.GONE);
         CustomCartContainer.setVisibility(View.GONE);

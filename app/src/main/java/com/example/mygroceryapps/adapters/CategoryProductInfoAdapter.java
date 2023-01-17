@@ -27,21 +27,21 @@ public class CategoryProductInfoAdapter extends RecyclerView.Adapter<CategoryPro
     private String UserId;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-            private RelativeLayout PrContainer;
-            private ImageView ProductImage;
-            private TextView ProductName;
-            private TextView ProductPrice;
-            private TextView ProductExpiryDate;
-            private ImageView PrFavoriteImage;
+        private RelativeLayout PrContainer;
+        private ImageView ProductImage;
+        private TextView ProductName;
+        private TextView ProductPrice;
+        private TextView ProductExpiryDate;
+        private ImageView PrFavoriteImage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            PrContainer = (RelativeLayout)itemView.findViewById(R.id.PrContainer);
-            ProductImage = (ImageView)itemView.findViewById(R.id.PrImage);
-            ProductName = (TextView)itemView.findViewById(R.id.PrName);
-            ProductPrice = (TextView)itemView.findViewById(R.id.PrPrice);
-            ProductExpiryDate = (TextView)itemView.findViewById(R.id.PrExpiryDate);
-            PrFavoriteImage = (ImageView)itemView.findViewById(R.id.PrFavoriteImage);
+            PrContainer = itemView.findViewById(R.id.PrContainer);
+            ProductImage = itemView.findViewById(R.id.PrImage);
+            ProductName = itemView.findViewById(R.id.PrName);
+            ProductPrice = itemView.findViewById(R.id.PrPrice);
+            ProductExpiryDate = itemView.findViewById(R.id.PrExpiryDate);
+            PrFavoriteImage = itemView.findViewById(R.id.PrFavoriteImage);
 
             itemView.setOnClickListener(this);
         }
@@ -72,12 +72,12 @@ public class CategoryProductInfoAdapter extends RecyclerView.Adapter<CategoryPro
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CategoryProductInfoAdapter.ViewHolder holder, int position) {
         final CategoryProductInfo product = ProductList.get(position);
 
         Picasso.get().load(product.getProductImage()).into(holder.ProductImage);
         holder.ProductName.setText(product.getProductName());
-        holder.ProductPrice.setText("Price: "+product.getProductPrice()+" EGP");
+        holder.ProductPrice.setText("Price: "+product.getProductPrice()+" TK");
         holder.ProductExpiryDate.setText("Expiry Date: "+product.getProductExpiryDate());
 
         if(product.getProductExpiryDate().equalsIgnoreCase("null")) holder.ProductExpiryDate.setVisibility(View.INVISIBLE);
@@ -109,7 +109,7 @@ public class CategoryProductInfoAdapter extends RecyclerView.Adapter<CategoryPro
                     DatabaseReference x= FirebaseDatabase.getInstance().getReference().child("favourites").child(UserId).child(product.getProductName());
                     x.child("checked").setValue(true);
                     x.child("productimage").setValue(product.getProductImage());
-                    x.child("productprice").setValue("EGP "+product.getProductPrice());
+                    x.child("productprice").setValue("TK "+product.getProductPrice());
                     x.child("producttitle").setValue(product.getProductName());
 
                 }
@@ -138,3 +138,5 @@ public class CategoryProductInfoAdapter extends RecyclerView.Adapter<CategoryPro
     }
 
 }
+
+

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer"
@@ -12,7 +13,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="@+id/main_TooBar"
     app:layout_constraintVertical_bias="1.0"
-    tools:context=".MainActivity">
+    tools:context="ui.MainActivity">
 
 
     <RelativeLayout
@@ -25,7 +26,7 @@
             android:id="@+id/main_TooBar"
             layout="@layout/main2_toolbar"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="0dp"/>
+            tools:layout_editor_absoluteY="0dp" />
 
         <ScrollView
             android:id="@+id/scroll"
@@ -100,7 +101,7 @@
 
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navegation_view"
+        android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"

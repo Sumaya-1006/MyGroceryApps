@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.PagerAdapter;
+
 import com.example.mygroceryapps.Model.model;
 import com.example.mygroceryapps.R;
 import com.example.mygroceryapps.ui.ProductInfoActivity;
@@ -81,10 +82,6 @@ public class My_Adapter extends PagerAdapter {
     }
 
 
-
-
-
-
     private void getData(final String ProductNamee){
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         DatabaseReference m = root.child("product");
@@ -126,7 +123,7 @@ public class My_Adapter extends PagerAdapter {
                             ProductNExpiryDate= dataSnapshot.child("expired").getValue().toString();
                             break;}
                     }
-                        getIsFav(ProductNamee);
+                    getIsFav(ProductNamee);
                 }
             }
             @Override

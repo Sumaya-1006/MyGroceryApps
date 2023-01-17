@@ -66,7 +66,7 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
         UserId = CurrentUser.getUid();
 
         //toolbar
-        mToolbar =(Toolbar)findViewById(R.id.ProductToolBar);
+        mToolbar = findViewById(R.id.ProductToolBar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -88,21 +88,21 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
 
 
     private void DefineXmlViews() {
-        PImage = (ImageView) findViewById(R.id.ProductImage);
-        PIsFav = (ImageView) findViewById(R.id.ProductFav);
-        PName = (TextView) findViewById(R.id.ProductName);
-        PCategory = (TextView) findViewById(R.id.ProductCategory);
-        PAmount = (TextView) findViewById(R.id.ProductAvailableAmount);
-        PPrice = (TextView) findViewById(R.id.CurrentProductPrice);
-        OldPrice = (TextView) findViewById(R.id.OldProductPrice);
-        OfferRate = (TextView) findViewById(R.id.OfferRate);
-        OfferContainer = (LinearLayout) findViewById(R.id.OfferContainer);
-        PExpiryDate = (TextView) findViewById(R.id.ProductExpiryDate);
-        AddToCartContainer = (RelativeLayout) findViewById(R.id.AddToCart);
-        DeleteFromCartContainer = (RelativeLayout) findViewById(R.id.DeleteFromCart);
-        CheckCartContainer = (RelativeLayout) findViewById(R.id.CheckCartContainer);
-        Back = (Button) findViewById(R.id.BackBtn);
-        Confirm = (Button) findViewById(R.id.ConformBtn);
+        PImage =  findViewById(R.id.ProductImage);
+        PIsFav = findViewById(R.id.ProductFav);
+        PName =  findViewById(R.id.ProductName);
+        PCategory =  findViewById(R.id.ProductCategory);
+        PAmount = findViewById(R.id.ProductAvailableAmount);
+        PPrice =  findViewById(R.id.CurrentProductPrice);
+        OldPrice =  findViewById(R.id.OldProductPrice);
+        OfferRate =  findViewById(R.id.OfferRate);
+        OfferContainer =  findViewById(R.id.OfferContainer);
+        PExpiryDate =  findViewById(R.id.ProductExpiryDate);
+        AddToCartContainer =  findViewById(R.id.AddToCart);
+        DeleteFromCartContainer =  findViewById(R.id.DeleteFromCart);
+        CheckCartContainer =  findViewById(R.id.CheckCartContainer);
+        Back =  findViewById(R.id.BackBtn);
+        Confirm = findViewById(R.id.ConformBtn);
 
         RefreshContainers();
     }
@@ -137,7 +137,7 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
                     PIsFav.setImageResource(R.drawable.ic_baseline_favorite_shadow_24);
                     ProductIsFavorite="false";
                     //here Delete favourites from database
-                    DatabaseReference x= FirebaseDatabase.getInstance().getReference().child("favourites").child(UserId);
+                    DatabaseReference x = FirebaseDatabase.getInstance().getReference().child("favourites").child(UserId);
                     x.child(ProductName).removeValue();
                 }
                 else{
@@ -147,7 +147,7 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
                     DatabaseReference x= FirebaseDatabase.getInstance().getReference().child("favourites").child(UserId).child(ProductName);
                     x.child("checked").setValue(true);
                     x.child("productimage").setValue(ProductImage);
-                    x.child("productprice").setValue("EGP "+ProductPrice);
+                    x.child("productprice").setValue("TK"+ProductPrice);
                     x.child("producttitle").setValue(ProductName);
 
                 }
@@ -234,14 +234,14 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
 
         if(IsOffered.equalsIgnoreCase("yes")){
             int PriceAfterOffer = (int) ((Integer.valueOf(ProductPrice)) - (Integer.valueOf(ProductPrice)*0.3));
-            PPrice.setText("Price: "+PriceAfterOffer+" EGP");
-            OldPrice. setText(ProductPrice+" EGP");
+            PPrice.setText("Price: "+PriceAfterOffer+" TK");
+            OldPrice. setText(ProductPrice+" TK");
             OfferRate.setText("- 30%");
             OldPrice.setPaintFlags(OldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
         else{
             OfferContainer.setVisibility(View.GONE);
-            PPrice.setText("Price: "+ProductPrice+" EGP");
+            PPrice.setText("Price: "+ProductPrice+" TK");
         }
 
 
@@ -249,7 +249,8 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
         else PIsFav.setImageResource(R.drawable.ic_baseline_favorite_shadow_24);
 
         if(ProductNExpiryDate.equalsIgnoreCase("null") )PExpiryDate.setVisibility(View.GONE);
-        else {PExpiryDate.setVisibility(View.VISIBLE); PExpiryDate.setText("Expiry Date: "+ProductNExpiryDate);}
+        else {PExpiryDate.setVisibility(View.VISIBLE);
+        PExpiryDate.setText("Expiry Date: "+ProductNExpiryDate);}
 
 
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
@@ -423,9 +424,9 @@ public class ProductInfoActivity extends AppCompatActivity  implements Navigatio
         actionBar.setCustomView(view);
 
         //************custom action items xml**********************
-        CustomCartContainer = (RelativeLayout)findViewById(R.id.CustomCartIconContainer);
-        PageTitle =(TextView)findViewById(R.id.PageTitle);
-        CustomCartNumber = (TextView)findViewById(R.id.CustomCartNumber);
+        CustomCartContainer = findViewById(R.id.CustomCartIconContainer);
+        PageTitle =  findViewById(R.id.PageTitle);
+        CustomCartNumber = findViewById(R.id.CustomCartNumber);
 
         PageTitle.setText("Product Info");
         setNumberOfItemsInCartIcon();

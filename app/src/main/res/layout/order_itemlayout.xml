@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -97,18 +98,18 @@
         android:textSize="24sp"
         android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/ScanQRCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="15dp"
-        android:text="Scan QR code"
-        android:textColor="#00ACC1"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@drawable/product_container"
-        android:layout_alignParentRight="true"/>
+        <Button
+            android:id="@+id/ScanQRCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/product_container"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Scan QR code"
+            android:textColor="#00ACC1" />
 
     </RelativeLayout>
 

@@ -63,7 +63,7 @@ public class AddSalesMan extends AppCompatActivity {
         setContentView(R.layout.activity_add_sales_man);
 
         //tool bar
-        mToolBar = (Toolbar)findViewById(R.id.AddSalesMen_ToolBar);
+        mToolBar = findViewById(R.id.AddSalesMen_ToolBar);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("Add SalesMan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -214,6 +214,7 @@ public class AddSalesMan extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Task<Uri> urlTask = taskSnapshot.getStorage().getDownloadUrl();
+
                 while (!urlTask.isSuccessful());
                 Uri downloadUrl = urlTask.getResult();
                 DatabaseReference z = mDataBaseRef.child(name.getText().toString().trim())
@@ -309,7 +310,7 @@ public class AddSalesMan extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true);
 
         LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view= inflater.inflate(R.layout.main2_toolbar,null);
+        View view = inflater.inflate(R.layout.main2_toolbar,null);
         //actionBar.setCustomView(view);
 
         //************custom action items xml**********************

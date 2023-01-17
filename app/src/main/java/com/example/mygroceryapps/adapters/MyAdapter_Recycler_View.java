@@ -22,13 +22,13 @@ public class MyAdapter_Recycler_View extends RecyclerView.Adapter<MyAdapter_Recy
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MyAdapter_Recycler_View.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_item, null);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyAdapter_Recycler_View.ViewHolder holder, int position) {
         favouritesClass horizontalProductModel = horizontalProductModelList.get(position);
 
         holder.producttitle.setText(horizontalProductModel.getProducttitle());

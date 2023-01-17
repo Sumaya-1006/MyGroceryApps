@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +52,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String uId;
     private RelativeLayout rlayout;
     private Animation animation;
+    FirebaseDatabase database;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -60,11 +62,11 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-        final EditText email =  findViewById(R.id.email);
-        final EditText name =  findViewById(R.id.name);
-        final EditText pass1 =  findViewById(R.id.pass1);
-        final EditText pass2 =  findViewById(R.id.pass2);
-        final EditText num =  findViewById(R.id.num);
+         EditText email =  findViewById(R.id.email);
+         EditText name =  findViewById(R.id.name);
+         EditText pass1 =  findViewById(R.id.pass1);
+         EditText pass2 =  findViewById(R.id.pass2);
+         EditText num =  findViewById(R.id.num);
 
         //Header
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.bgHeader);
@@ -72,14 +74,14 @@ public class RegisterActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // animation
+        // amnimation
         rlayout = findViewById(R.id.rlayout);
         animation = AnimationUtils.loadAnimation(this, R.anim.uptodowndiagonal);
         rlayout.setAnimation(animation);
 
         image = findViewById(R.id.image);
-        final Button finish =  findViewById(R.id.finish);
-        TextView login =  findViewById(R.id.login);
+        Button finish =  findViewById(R.id.finish);
+        TextView login = findViewById(R.id.login);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
                 Intent i = new Intent(RegisterActivity.this, loginActivity.class);
                 startActivity(i);
                 finish();
+                Log.d("key","hlw");
             }
         });
 
@@ -101,13 +104,16 @@ public class RegisterActivity extends AppCompatActivity {
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if (email.getText().toString().isEmpty() || name.getText().toString().isEmpty() || pass1.getText().toString().isEmpty()
                         || pass2.getText().toString().isEmpty() || num.getText().toString().isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "Empty Cells", Toast.LENGTH_LONG).show();
+
                 } else if (!pass1.getText().toString().equals(pass2.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "you must write password in two boxes", Toast.LENGTH_LONG).show();
                     pass1.setText("");
                     pass2.setText("");
+
                 } else {
                     String mailtxt = email.getText().toString(), passtxt = pass1.getText().toString();
                     mAuth.createUserWithEmailAndPassword(mailtxt, passtxt).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
@@ -128,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (ResultURI != null) UploadImageInStorageDataBase(ResultURI);
 
                                 Toast.makeText(RegisterActivity.this, "Registered Successfully", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, loginActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -183,7 +189,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 descriptor.close();
             } catch (IOException e) {
-                Log.e("B2ala", "fileNotFound", e);
+                Log.e("key", "fileNotFound", e);
             }
             image.setImageBitmap(bitmap);
         }

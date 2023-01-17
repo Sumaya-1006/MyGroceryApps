@@ -6,7 +6,7 @@
     android:id="@+id/ProductDrawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.ProductInfoActivity">
+    tools:context=".ui.ProductInfoActivity">
 
     <RelativeLayout
         android:id="@+id/PBody"
@@ -53,10 +53,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
                     android:background="#E43131"
                     android:padding="5dp"
-                    android:layout_marginTop="5dp"
-                    android:text="B2ala Store"
+                    android:text="Grocery Store"
                     android:textColor="#FFF"
                     android:textSize="18dp" />
 
