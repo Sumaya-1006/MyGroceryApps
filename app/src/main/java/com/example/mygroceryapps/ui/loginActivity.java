@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class loginActivity extends AppCompatActivity {
     Button mlogin;
     TextView mforgerpassword, tvLogin;
     ImageButton mCreateBtn;
+    ImageView fb,google;
     FirebaseAuth fauth;
     ProgressBar mprogresspar;
 
@@ -47,6 +49,9 @@ public class loginActivity extends AppCompatActivity {
         mCreateBtn = findViewById(R.id.SignUPtext);
         mprogresspar =  findViewById(R.id.progressBar1);
         mforgerpassword =  findViewById(R.id.ForgetPassword);
+        fb = findViewById(R.id.fbBtn);
+        google = findViewById(R.id.googleBtn);
+
         // Checking if the user is logging in or log out ! ;
         if (fauth.getCurrentUser() != null) {
             if (fauth.getCurrentUser().getEmail().equals("admin@gmail.com")) {
@@ -58,6 +63,24 @@ public class loginActivity extends AppCompatActivity {
             }
 
         }
+
+        // fb sign in  on firebase
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(loginActivity.this, MainActivity.class));
+                finish();
+
+            }
+        });
+
+        //  google sign in on firebase
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),GoogleSignInActivity.class));
+            }
+        });
 
         mlogin.setOnClickListener(new View.OnClickListener() {
             @Override
