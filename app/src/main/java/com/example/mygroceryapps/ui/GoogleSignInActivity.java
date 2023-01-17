@@ -29,6 +29,14 @@ public class GoogleSignInActivity extends loginActivity {
     ProgressDialog progressDialog;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null)
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -36,7 +44,7 @@ public class GoogleSignInActivity extends loginActivity {
         progressDialog.setMessage("Google Sign In");
         progressDialog.show();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken(String.valueOf(R.string.Gmail_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -78,7 +86,7 @@ public class GoogleSignInActivity extends loginActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         }else{
-                            progressDialog.dismiss();
+                          progressDialog.dismiss();
                             Toast.makeText(GoogleSignInActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
                             updateUI(null);
                             finish();

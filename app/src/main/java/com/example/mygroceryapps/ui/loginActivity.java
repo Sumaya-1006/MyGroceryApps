@@ -50,7 +50,7 @@ public class loginActivity extends AppCompatActivity {
         mprogresspar =  findViewById(R.id.progressBar1);
         mforgerpassword =  findViewById(R.id.ForgetPassword);
         fb = findViewById(R.id.fbBtn);
-        google = findViewById(R.id.googleBtn);
+       google = findViewById(R.id.googleBtn);
 
         // Checking if the user is logging in or log out ! ;
         if (fauth.getCurrentUser() != null) {
@@ -70,6 +70,7 @@ public class loginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(loginActivity.this, MainActivity.class));
                 finish();
+
 
             }
         });
