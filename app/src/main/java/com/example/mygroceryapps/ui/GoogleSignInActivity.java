@@ -3,10 +3,9 @@ package com.example.mygroceryapps.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import com.example.mygroceryapps.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -24,15 +23,16 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class GoogleSignInActivity extends loginActivity {
     GoogleSignInClient googleSignInClient;
     FirebaseAuth mAuth;
-    private static  final int RC_SIGN_IN = 101;
+    private static final int RC_SIGN_IN = 101;
     FirebaseUser mUser;
     ProgressDialog progressDialog;
+
 
     @Override
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null)
+        if (currentUser != null)
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 
@@ -44,20 +44,21 @@ public class GoogleSignInActivity extends loginActivity {
         progressDialog.setMessage("Google Sign In");
         progressDialog.show();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(String.valueOf(R.string.Gmail_web_client_id))
+                .requestIdToken(String.valueOf(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        
+
         googleSignInClient = GoogleSignIn.getClient(this,gso);
         Intent signInIntent = googleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent,RC_SIGN_IN);
 
     }
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode,@NonNull Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == RC_SIGN_IN) {
@@ -68,7 +69,7 @@ public class GoogleSignInActivity extends loginActivity {
 
             }catch (ApiException e){
                 Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
+                 progressDialog.dismiss();
                 finish();
             }
         }
@@ -82,24 +83,25 @@ public class GoogleSignInActivity extends loginActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            progressDialog.dismiss();
+                              progressDialog.dismiss();
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         }else{
-                          progressDialog.dismiss();
+                               progressDialog.dismiss();
                             Toast.makeText(GoogleSignInActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
                             updateUI(null);
                             finish();
                         }
-                        
+
                     }
                 });
     }
-
     private void updateUI(FirebaseUser user) {
         Intent intent = new Intent(GoogleSignInActivity.this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK );
         startActivity(intent);
-    }
 
+    }
 }
+
+

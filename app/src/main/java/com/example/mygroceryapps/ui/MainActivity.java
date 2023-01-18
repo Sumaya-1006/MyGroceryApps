@@ -30,6 +30,8 @@ import com.example.mygroceryapps.Model.user;
 import com.example.mygroceryapps.R;
 import com.example.mygroceryapps.adapters.GridproductAdapter;
 import com.example.mygroceryapps.adapters.My_Adapter;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -74,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAuth = FirebaseAuth.getInstance();
         CurrentUser = mAuth.getCurrentUser();
         Uid = CurrentUser.getUid();
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);

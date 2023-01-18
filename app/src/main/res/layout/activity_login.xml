@@ -216,10 +216,10 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/googleBtn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/google"/>
+                android:id="@+id/googleBtn"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/google"/>
 
                 <ImageView
                     android:id="@+id/fbBtn"
