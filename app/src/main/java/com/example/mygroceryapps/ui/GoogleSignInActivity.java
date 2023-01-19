@@ -3,7 +3,6 @@ package com.example.mygroceryapps.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.example.mygroceryapps.R;
@@ -44,7 +43,7 @@ public class GoogleSignInActivity extends loginActivity {
         progressDialog.setMessage("Google Sign In");
         progressDialog.show();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(String.valueOf(R.string.default_web_client_id))
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -83,12 +82,12 @@ public class GoogleSignInActivity extends loginActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                              progressDialog.dismiss();
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            progressDialog.dismiss();
+                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         }else{
-                               progressDialog.dismiss();
-                            Toast.makeText(GoogleSignInActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            Toast.makeText(GoogleSignInActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
                             updateUI(null);
                             finish();
                         }
