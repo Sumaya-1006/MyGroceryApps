@@ -8,9 +8,9 @@
     <string name="favorites">Favorites</string>
     <string name="cart">Cart</string>
     <string name="my_orders">My Orders</string>
-    <string name="facebook_app_id">1234</string>
+    <string name="facebook_app_id">1217612019190676</string>
     <string name="fb_login_protocol_scheme">fb1234</string>
-    <string name="facebook_client_token">56789</string>
+    <string name="facebook_client_token">543029fbed8249e39da519816fbb789b</string>
 
     <string name="Gmail_web_client_id">AIzaSyCVP76jrKQURdUvfVF9WWc1TLDF2Go5VhY</string>
     <string-array name="productstypes">

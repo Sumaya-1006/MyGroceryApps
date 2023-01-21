@@ -43,7 +43,7 @@ public class FacebookAuthActivity extends loginActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        // App code
+                        handleFacebookAccessToken(loginResult.getAccessToken());
                     }
 
                     @Override
