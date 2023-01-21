@@ -83,7 +83,8 @@
         android:id="@+id/sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/bgHeader">
+        android:layout_below="@+id/bgHeader"
+        android:layout_marginTop="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -99,9 +100,9 @@
                 app:cardElevation="4dp">
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:orientation="vertical"
                     android:paddingBottom="50dp">
 
@@ -138,11 +139,12 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         app:passwordToggleEnabled="true">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/PasswordLogin"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="textPassword"/>
+                            android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -153,11 +155,11 @@
                 android:layout_below="@+id/cv"
                 android:layout_alignLeft="@+id/cv"
                 android:layout_alignRight="@+id/cv"
-                android:gravity="center"
                 android:layout_marginLeft="35dp"
                 android:layout_marginTop="-50dp"
                 android:layout_marginRight="35dp"
-                android:elevation="10dp">
+                android:elevation="10dp"
+                android:gravity="center">
 
                 <Button
                     android:id="@+id/Login"
@@ -170,14 +172,14 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/cv"
                 android:layout_alignRight="@+id/cv"
                 android:layout_marginTop="-20dp"
                 android:layout_marginRight="-20dp"
-                android:elevation="10dp">
+                android:elevation="10dp"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/SignUPtext"
@@ -216,23 +218,26 @@
                 android:gravity="center">
 
                 <ImageView
-                android:id="@+id/googleBtn"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/google"/>
+                    android:id="@+id/googleBtn"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/google" />
 
                 <ImageView
                     android:id="@+id/fbBtn"
-                    android:layout_marginLeft="20dp"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/fb"/>
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/fb" />
 
 
             </LinearLayout>
-        </RelativeLayout>
 
+        </RelativeLayout>
 
     </ScrollView>
 
+
+
 </RelativeLayout>
+

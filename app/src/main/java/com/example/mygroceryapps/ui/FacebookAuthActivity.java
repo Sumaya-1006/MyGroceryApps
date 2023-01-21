@@ -1,14 +1,11 @@
-package com.example.mygroceryapps;
+package com.example.mygroceryapps.ui;
 
 import android.content.Intent;
-import android.net.wifi.hotspot2.pps.Credential;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.mygroceryapps.ui.MainActivity;
-import com.example.mygroceryapps.ui.loginActivity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

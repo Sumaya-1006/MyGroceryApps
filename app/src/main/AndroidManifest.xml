@@ -8,9 +8,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".ui.OfflineCapability"
+        android:name=".ui.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,7 +23,7 @@
         tools:ignore="ExtraText"
         tools:targetApi="31">
         <activity
-            android:name=".FacebookAuthActivity"
+            android:name=".ui.FacebookAuthActivity"
             android:exported="false" />
         <activity
             android:name=".ui.GoogleSignInActivity"
@@ -117,9 +118,12 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
-        <meta-data android:name="com.facebook.sdk.ClientToken"
-            android:value="@string/facebook_client_token"/>
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>

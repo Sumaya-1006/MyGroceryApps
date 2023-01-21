@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.mygroceryapps"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -50,6 +50,7 @@ dependencies {
     implementation 'com.budiyev.android:code-scanner:2.1.0'
     implementation 'com.karumi:dexter:6.0.0'
     implementation 'com.google.firebase:firebase-messaging:23.1.1'
+    implementation 'androidx.lifecycle:lifecycle-process:2.5.1'
 
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     //image cropper
@@ -71,8 +72,12 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.4.0'
     //fb login
     implementation 'com.facebook.android:facebook-android-sdk:5.0.0'
-
-
-
+    //ads
+    implementation 'com.google.android.gms:play-services-ads:21.4.0'
+    def lifecycle_version = "2.0.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+    //noinspection LifecycleAnnotationProcessorWithJava8
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
 }
