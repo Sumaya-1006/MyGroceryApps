@@ -31,15 +31,19 @@ public class FacebookAuthActivity extends loginActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
         FacebookSdk.sdkInitialize(getApplicationContext());
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+
 
         callbackManager = CallbackManager.Factory.create();
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
+        LoginManager.getInstance().logInWithReadPermissions(this,Arrays.asList("public_profile"));
 
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
+
                         handleFacebookAccessToken(loginResult.getAccessToken());
                     }
 
@@ -73,6 +77,9 @@ public class FacebookAuthActivity extends loginActivity {
                             // Sign in success, update UI with the signed-in user's information
 
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(FacebookAuthActivity.this, "Authentication successful",
+                                    Toast.LENGTH_SHORT).show();
+
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
